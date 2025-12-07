@@ -1,0 +1,29 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: usermodule
+    password: 1
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+sms:
+  active-provider: example
+  code-digits: 6
+forget-password:
+    code:
+      timeout: 5
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    #    org.hibernate.SQL: DEBUG
+    com.usermodule.utils.com.usermodule.utils.LoggingAspectUtil: INFO
+    com.usermodule: DEBUG
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){blue} %clr(%-5level) %clr(%class{0}){cyan}:%clr(%L){magenta} - %clr(%msg%n)"

@@ -1,0 +1,129 @@
+server:
+  servlet:
+    context-path: "/api/v1"
+    encoding:
+      charset: UTF-8
+      force-response: true
+  tomcat:
+    max-swallow-size: -1
+    max-http-form-post-size: -1
+    max-post-size: -1
+    max-threads: 4
+  error:
+    include-message: always
+    include-binding-errors: always
+#  ssl:
+#    enabled: true
+#    key-store: "classpath:store.jks"
+#    key-password: "secret"
+
+management:
+  server:
+    #    port: 8888
+    ssl:
+      enabled: false
+  #      key-store: "classpath:management.jks"
+  #      key-password: "secret"
+  endpoints:
+    web:
+      base-path: "/app/server/manage"
+
+resourceBundle:
+  baseName: bundle
+  defaultLocale: bundle
+
+spring:
+  application:
+    name: usermodule
+  main:
+    banner-mode: off
+    lazy-initialization: false
+    allow-bean-definition-overriding: true
+  profiles:
+    active: '@activeProfile@'
+    hikari:
+      driver-class-name: oracle.jdbc.OracleDriver
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+      poolName: HikariPoolBooks
+    properties:
+      hibernate:
+        format_sql: true
+    database: oracle
+    database-platform: org.hibernate.dialect.OracleDialect
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    #    property-naming-strategy: SNAKE_CASE
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Tehran
+  #    serialization:
+  #      write-dates-as-timestamps: false
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+#        session_factory:
+#          statement_inspector: com.usermodule.inspector.HibernateInspector
+#        default_schema: db
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+#  datasource: oracle.jdbc.OracleDriver
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+#  config:
+#    activate:
+#      on-profile:
+
+#        integration:
+#          envers:
+#            enabled: false
+
+#hibernate:
+#  current_session_context_class: org.hibernate.context.internal.ThreadLocalSessionContext
+
+
+#    properties:
+#      hibernate:
+#        jdbc:
+#          time_zone: UTC
+#  webmvc:
+#   cors:
+#    allowed-origins: "*"
+#    allowed-methods: "GET, POST, PUT, DELETE"
+
+#tomcat:
+# max-wait: 20000
+# max-active: 50
+# max-idle: 20
+# min-idle: 15
+
+fileCategory:
+#  userImages: USER-IMAGES
+
+socket:
+  host: 0.0.0.0
+  port: 8878
+
+event-name: notify
+
+smbPath: "DOCUMENT_FOLDER_PATH"
+smbUsername: "DOCUMENT_FOLDER_USERNAME"
+smbPassword: "DOCUMENT_FOLDER_PASSWORD"
+
+#logging :
+#  level:
+#    org:
+#      springframework.transaction: DEBUG
+#      hibernate: DEBUG
+#    javax.transaction: DEBUG
