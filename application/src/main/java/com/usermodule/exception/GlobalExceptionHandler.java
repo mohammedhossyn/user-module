@@ -185,7 +185,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("Exception")
+                .title("exception")
                 .code(EXCEPTION.getCode())
                 .message(resourceBundleUtil.getMessage(EXCEPTION.getDescription()))
                 .className(exp.getStackTrace()[0].getClassName())
@@ -249,7 +249,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleAuthenticationException")
+                .title("authenticationException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(AUTHENTICATION_EXCEPTION.getDescription()))
                 .name("authentication")
@@ -312,7 +312,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleIllegalArgumentException")
+                .title("illegalArgumentException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(resourceBundleUtil.getMessage(ILLEGAL_ARGUMENT_EXCEPTION.getDescription())))
                 .name("illegal argument")
@@ -333,7 +333,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleNullPointerException")
+                .title("nullPointerException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(NULL_POINTER_EXCEPTION.getDescription()))
                 .name("null pointer")
@@ -354,7 +354,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleNoHandlerFoundException")
+                .title("noHandlerFoundException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(NO_HANDLER_FOUND_EXCEPTION.getDescription()))
                 .name("no Handler found")
@@ -485,7 +485,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleJDBCException")
+                .title("JDBCException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(JDBC_EXCEPTION.getDescription()))
                 .name(exp.getSQL())
@@ -507,7 +507,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleSQLIntegrityConstraintViolationException")
+                .title("SQLIntegrityConstraintViolationException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(SQL_INTEGRITY_CONSTRAINT_VIOLATION_EXCEPTION.getDescription()))
                 .name("sql integrity constraint violation")
@@ -528,7 +528,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleSQException")
+                .title("SQException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(SQL_EXCEPTION.getDescription()))
                 .name("sql")
@@ -549,7 +549,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleHibernateException")
+                .title("hibernateException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(HIBERNATE_EXCEPTION.getDescription()))
                 .name("hibernate")
@@ -570,7 +570,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleDataIntegrityViolationException")
+                .title("dataIntegrityViolationException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(DATA_INTEGRITY_VIOLATION_EXCEPTION.getDescription()))
                 .code(DATA_INTEGRITY_VIOLATION_EXCEPTION.getCode())
@@ -591,7 +591,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleRuntimeException")
+                .title("runtimeException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(RUNTIME_EXCEPTION.getDescription()))
                 .code(RUNTIME_EXCEPTION.getCode())
@@ -612,7 +612,7 @@ public class GlobalExceptionHandler {
         exp.printStackTrace();
         List<ApiErrorResponseDTO> errors = new ArrayList<>();
         errors.add(ApiErrorResponseDTO.builder()
-                .title("handleException")
+                .title("servletException")
                 .description(exp.getMessage())
                 .message(resourceBundleUtil.getMessage(SERVLET_EXCEPTION.getDescription()))
                 .code(SERVLET_EXCEPTION.getCode())
