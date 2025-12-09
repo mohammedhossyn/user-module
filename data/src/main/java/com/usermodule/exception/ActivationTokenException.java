@@ -1,4 +1,4 @@
-package com.storebackend.model.common.exception;
+package com.usermodule.exception;
 
 public class ActivationTokenException extends RuntimeException {
     public ActivationTokenException(String message) {

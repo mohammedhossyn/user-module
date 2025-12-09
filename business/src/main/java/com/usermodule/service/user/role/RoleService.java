@@ -71,7 +71,7 @@ public class RoleService {
             } else {
                 log.info("role {} is already in use", roleAddRequestDTO.name());
                 throw BusinessException.builder().name("add role").message("err.roleIsAlreadyInUse")
-                        .description("role is already in use").code(222).field("username")
+                        .description("role is already in use").code(null).field("username")
                         .value(roleAddRequestDTO.name()).build();
             }
 
@@ -113,7 +113,7 @@ public class RoleService {
             if (roleOptional.isEmpty()) {
                 log.info("role Entity id = {} not found", id);
                 throw BusinessException.builder().name("role user").message("err.roleNotFound")
-                        .description("role Not Found").code(888).field("id").value(id).build();
+                        .description("role Not Found").code(null).field("id").value(id).build();
             }
             var roleEntity = roleOptional.get();
 
@@ -123,7 +123,7 @@ public class RoleService {
                 if (roleRepository.existsByName(roleAddRequestDTO.name())) {
                     log.info("role name {} is already in use", roleAddRequestDTO.name());
                     throw BusinessException.builder().name("update role").message("err.roleNameIsAlreadyInUse")
-                            .description("role name is already in use").code(88888).field("name")
+                            .description("role name is already in use").code(null).field("name")
                             .value(roleAddRequestDTO.name()).className(this.getClass().getName())
                             .line(Thread.currentThread().getStackTrace()[1].getLineNumber()).build();
                 }
@@ -135,7 +135,7 @@ public class RoleService {
                 if (roleRepository.existsByDescription(roleAddRequestDTO.description())) {
                     log.info("role description {} is already in use", roleAddRequestDTO.description());
                     throw BusinessException.builder().name("update role").message("err.roleDescriptionIsAlreadyInUse")
-                            .description("role description is already in use").code(88888).field("description")
+                            .description("role description is already in use").code(null).field("description")
                             .value(roleAddRequestDTO.description()).className(this.getClass().getName())
                             .line(Thread.currentThread().getStackTrace()[1].getLineNumber()).build();
                 }

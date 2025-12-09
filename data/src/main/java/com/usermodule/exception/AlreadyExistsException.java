@@ -1,4 +1,4 @@
-package com.storebackend.model.common.exception;
+package com.usermodule.exception;
 
 public class AlreadyExistsException extends RuntimeException {
     public AlreadyExistsException(String message) {

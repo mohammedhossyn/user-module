@@ -58,7 +58,7 @@ public class PermissionCrudService {
             } else {
                 log.info("action {} is already in use", permissionAddRequestDTO.code());
                 throw BusinessException.builder().name("add action").message("err.permissionIsAlreadyInUse")
-                        .description("permission is already in use").code(999).field("code")
+                        .description("permission is already in use").code(null).field("code")
                         .value(permissionAddRequestDTO.code()).build();
             }
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class PermissionCrudService {
             throw BusinessException.builder()
                     .name("permission user")
                     .message("err.permissionNotFound")
-                    .description("Permission Not Found").code(888).field("id").value(id).build();
+                    .description("Permission Not Found").code(null).field("id").value(id).build();
         }
         var permissionEntity = permissionOptional.get();
 
@@ -85,7 +85,7 @@ public class PermissionCrudService {
             if (permissionRepository.existsByCode(permissionAddRequestDTO.code())) {
                 log.info("permission code {} is already in use", permissionAddRequestDTO.code());
                 throw BusinessException.builder().name("update permission").message("err.permissionCodeIsAlreadyInUse")
-                        .description("permission code is already in use").code(88888).field("code")
+                        .description("permission code is already in use").code(null).field("code")
                         .value(permissionAddRequestDTO.code()).className(this.getClass().getName())
                         .line(Thread.currentThread().getStackTrace()[1].getLineNumber()).build();
             }
@@ -110,7 +110,7 @@ public class PermissionCrudService {
             if (permissionRepository.existsByDescription(permissionAddRequestDTO.description())) {
                 log.info("permission description {} is already in use", permissionAddRequestDTO.description());
                 throw BusinessException.builder().name("update permission").message("err.permissionDescriptionIsAlreadyInUse")
-                        .description("permission description is already in use").code(88888).field("description")
+                        .description("permission description is already in use").code(null).field("description")
                         .value(permissionAddRequestDTO.description()).className(this.getClass().getName())
                         .line(Thread.currentThread().getStackTrace()[1].getLineNumber()).build();
             }

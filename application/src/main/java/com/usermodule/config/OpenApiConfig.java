@@ -1,4 +1,4 @@
-package com.storebackend.web.config;
+package com.usermodule.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
@@ -18,10 +18,6 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 description = "OpenApi documentation for Store App",
                 title = "OpenApi specification",
                 version = "1.0",
-//                license = @License(
-//                        name = "",
-//                        url = ""
-//                ),
                 termsOfService = "Terms of service"
         ),
         servers = {

@@ -3,6 +3,7 @@ package com.usermodule.service.user;
 import com.usermodule.dto.user.UserDetailsDTO;
 import com.usermodule.dto.user.UserAddRequestDTO;
 import com.usermodule.dto.user.UserResponseDTO;
+import com.usermodule.exception.AlreadyExistsException;
 import com.usermodule.exception.BusinessException;
 import com.usermodule.mapper.user.UserAddDTOMapper;
 import com.usermodule.mapper.user.UserDTOMapper;
@@ -46,10 +47,7 @@ public class UserCrudService {
             transactionUtil.openTransaction();
             if (userRepository.existsByUsername(userAddRequestDTO.username())) {
                 log.info("username {} is already in use", userAddRequestDTO.username());
-                throw BusinessException.builder().name("add user").message("err.usernameIsAlreadyInUse")
-                        .description("username is already in use").code(75435).field("username")
-                        .value(userAddRequestDTO.username()).className(this.getClass().getName())
-                        .line(Thread.currentThread().getStackTrace()[1].getLineNumber()).build();
+                throw new AlreadyExistsException("username : " + userAddRequestDTO.username());
             }
             var userEntity = userAddDTOMapper.apply(userAddRequestDTO);
             Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
@@ -168,11 +166,6 @@ public class UserCrudService {
         userRepository.save(user);
         log.debug("UserCrudService.addCustomer ended");
         return user;
-    }
-
-    public Optional<UserEntity> findProducerById(Long id) {
-        log.debug("UserCrudService.findProducerById started");
-        return userRepository.findByUserIdAndUserRolePermissions_Role_Name(id, "Producer");
     }
 
 

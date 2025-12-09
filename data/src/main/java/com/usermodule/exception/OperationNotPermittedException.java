@@ -1,4 +1,4 @@
-package com.storebackend.model.common.exception;
+package com.usermodule.exception;
 
 public class OperationNotPermittedException extends RuntimeException {
     public OperationNotPermittedException(String message) {
