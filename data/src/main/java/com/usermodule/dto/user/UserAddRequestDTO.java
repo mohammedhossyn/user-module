@@ -1,6 +1,7 @@
 package com.usermodule.dto.user;
 
 import com.usermodule.dto.user.validation.Password;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -18,6 +19,11 @@ public record UserAddRequestDTO
          @Pattern(regexp = "^[0-9]{11}$", message = "validation.mobileNumber")
          @NotEmpty
          String mobileNumber,
+         @Email
+         String email,
+         String nationalId,
+         String firstName,
+         String lastName,
          Long roleId,
          Set<Long> permissions) {
 }

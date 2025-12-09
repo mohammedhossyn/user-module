@@ -2,6 +2,7 @@ package com.usermodule.model.user;
 
 import com.usermodule.model.system.BaseEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,8 +35,21 @@ public class UserEntity extends BaseEntity {
     @Column(name = "PASSWORD", columnDefinition = "NVARCHAR2(100)", nullable = false)
     private String password;
 
-    @Column(name = "MOBILE_NUMBER", columnDefinition = "NVARCHAR2(11)", nullable = false) //TODO: ask for unique or not
+    @Column(name = "MOBILE_NUMBER", columnDefinition = "NVARCHAR2(11)", nullable = false)
     private String mobileNumber;
+
+    @Email
+    @Column(columnDefinition = "NVARCHAR2(100)", nullable = false)
+    private String email;
+
+    @Column(name = "NATIONAL_ID", columnDefinition = "NVARCHAR2(10)", nullable = false)
+    private String nationalId;
+
+    @Column(name = "FIRST_NAME", columnDefinition = "NVARCHAR2(50)", nullable = false)
+    private String firstName;
+
+    @Column(name = "LAST_NAME", columnDefinition = "NVARCHAR2(50)", nullable = false)
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "NVARCHAR2(100)", nullable = false)
@@ -46,5 +60,19 @@ public class UserEntity extends BaseEntity {
 
     @Transient
     private String statusForSearch;
+
+    public String getFullName(){
+        String fullName = "";
+        if (this.firstName != null || this.lastName != null){
+            if (this.firstName != null && !this.firstName.isEmpty()) fullName = this.firstName;
+            if (this.lastName != null && !this.lastName.isEmpty()) {
+                if (fullName.isEmpty()) fullName = this.lastName;
+                else fullName += " " +this.firstName;
+            }
+        } else {
+            fullName = this.username;
+        }
+        return fullName;
+    }
     
 }

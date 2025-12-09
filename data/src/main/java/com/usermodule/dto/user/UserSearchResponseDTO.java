@@ -7,6 +7,11 @@ public record UserSearchResponseDTO
         (Long userId,
          String username,
          String mobileNumber,
+         String email,
+         String nationalId,
+         String firstName,
+         String lastName,
+         String fullName,
          String status) {
 }
 

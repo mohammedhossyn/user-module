@@ -16,6 +16,10 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>, ListPag
             " FROM UserEntity su " +
             " WHERE (:#{#userEntity.username} is null or su.username LIKE CONCAT('%', :#{#userEntity.username},'%')) " +
             " and (:#{#userEntity.mobileNumber} is null or su.mobileNumber LIKE CONCAT('%', :#{#userEntity.mobileNumber},'%')) " +
+            " and (:#{#userEntity.email} is null or su.email LIKE CONCAT('%', :#{#userEntity.email},'%')) " +
+            " and (:#{#userEntity.nationalId} is null or su.nationalId LIKE CONCAT('%', :#{#userEntity.nationalId},'%')) " +
+            " and (:#{#userEntity.firstName} is null or su.firstName LIKE CONCAT('%', :#{#userEntity.firstName},'%')) " +
+            " and (:#{#userEntity.lastName} is null or su.lastName LIKE CONCAT('%', :#{#userEntity.lastName},'%')) " +
             " and (:#{#userEntity.statusForSearch} is null or su.status LIKE CONCAT('%', :#{#userEntity.statusForSearch},'%')) " +
             " order by su.userId ")
     Page<UserEntity> search(Pageable pageable, UserEntity userEntity);

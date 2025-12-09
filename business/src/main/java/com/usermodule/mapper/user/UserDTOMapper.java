@@ -24,6 +24,11 @@ public class UserDTOMapper implements Function<UserEntity, UserResponseDTO> {
                 .username(userEntity.getUsername())
                 .status(userEntity.getStatus().getLabel())
                 .mobileNumber(userEntity.getMobileNumber())
+                .email(userEntity.getEmail())
+                .nationalId(userEntity.getNationalId())
+                .firstName(userEntity.getFirstName())
+                .lastName(userEntity.getLastName())
+                .fullName(userEntity.getFullName())
                 .build();
     }
 }

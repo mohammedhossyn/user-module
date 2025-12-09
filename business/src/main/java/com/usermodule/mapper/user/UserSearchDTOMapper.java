@@ -18,6 +18,11 @@ public class UserSearchDTOMapper implements Function<UserEntity, UserSearchRespo
                 .userId(userEntity.getUserId())
                 .username(userEntity.getUsername())
                 .status(userEntity.getStatus().getLabel())
+                .email(userEntity.getEmail())
+                .nationalId(userEntity.getNationalId())
+                .firstName(userEntity.getFirstName())
+                .lastName(userEntity.getLastName())
+                .fullName(userEntity.getFullName())
                 .build();
     }
 }
