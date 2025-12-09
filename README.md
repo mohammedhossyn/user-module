@@ -3,7 +3,7 @@ There is some INSERTs in database/db_changes for the first time you deploy appli
 I will commit and upload POSTMAN collection soon.
 Main specifications versions:
 Java 17 corretto & 
-Spring Boot 3.4.5
+Spring Boot 4.0.0
 
 
 I hope you ENJOY it ;)
