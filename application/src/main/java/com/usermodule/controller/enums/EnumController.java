@@ -30,43 +30,50 @@ public class EnumController {
     @GetMapping("/user/status")
     public ApiResponseDTO getUserStatus() {
         var enumsResponseDTO = enumService.getAllByType(UserStatus.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
     @GetMapping("/event/status")
     public ApiResponseDTO getEventStatus() {
         var enumsResponseDTO = enumService.getAllByType(EventStatus.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
     @GetMapping("/event/type")
     public ApiResponseDTO getEventType() {
         var enumsResponseDTO = enumService.getAllByType(EventType.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
 
     @GetMapping("/message/type")
     public ApiResponseDTO getMessageType() {
         var enumsResponseDTO = enumService.getAllByType(MessageType.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
     @GetMapping("/socketIO/status")
     public ApiResponseDTO getSocketIOStatus() {
         var enumsResponseDTO = enumService.getAllByType(SocketIOStatus.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
     @GetMapping("/inquiry/status")
     public ApiResponseDTO getInquiryStatus() {
         var enumsResponseDTO = enumService.getAllByType(InquiryStatus.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 
     @GetMapping("/operation/type")
     public ApiResponseDTO getOperationType() {
         var enumsResponseDTO = enumService.getAllByType(OperationType.class);
-        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(enumsResponseDTO, "",
+                true);
     }
 }

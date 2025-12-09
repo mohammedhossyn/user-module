@@ -32,14 +32,16 @@ public class UserController {
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('User Management') or hasAuthority('Add User')")
     public ApiResponseDTO add(@Valid @RequestBody UserAddRequestDTO userAddRequestDTO) {
         var userResponseDTO = userService.add(userAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
     @PostMapping("/change/status")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('User Management') or hasAuthority('User Change Status') or hasAuthority('Activate User')")
     public ApiResponseDTO changeStatus(@NonNull @RequestBody UserChangeStatusRequestDTO userChangeStatusRequestDTO) {
         var userResponseDTO = userService.changeStatus(userChangeStatusRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
     @PostMapping("/search")
@@ -47,14 +49,16 @@ public class UserController {
     public ApiResponseDTO search(@NonNull PaginationRequestDTO paginationRequestDTO,
                                  @RequestBody UserSearchRequestDTO userSearchRequestDTO) {
         var listDTO = userService.search(paginationRequestDTO.getPageable(), userSearchRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('User Management') or hasAuthority('Search User')")
     public ApiResponseDTO user(@NonNull @PathVariable Long id) {
         var userResponseDTO = userService.getUser(id);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
 //    @PutMapping("/update/{id}")
@@ -62,7 +66,8 @@ public class UserController {
 //    public ApiResponseDTO update(@NonNull @PathVariable Long id,
 //                                 @Valid @RequestBody UserAddRequestDTO userAddRequestDTO) {
 //        var userResponseDTO = userService.update(id, userAddRequestDTO);
-//        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+//        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+//                true);
 //    }
 
     @GetMapping("/loginHistory/{id}")
@@ -70,32 +75,37 @@ public class UserController {
     public ApiResponseDTO loginHistory(PaginationRequestDTO paginationRequestDTO,
                                        @NonNull @PathVariable Long id) {
         var userResponseDTO = loginHistoryService.findByUserId(paginationRequestDTO.getPageable(), id);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
     @GetMapping("/conf")
     public ApiResponseDTO conf() {
         var userResponseDTO = userService.conf();
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
     @PostMapping("/getUsersByPermission")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('User Management') or hasAuthority('Search Users By Permission')")
     public ApiResponseDTO getUsersByPermission(@RequestBody GetUserByPermissionRequestDTO getUserByPermissionRequestDTO) {
         var userResponseDTO = userService.getUsersByPermission(getUserByPermissionRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
     @PostMapping("/forgetPassword")
     public ApiResponseDTO forgetPassword(@RequestBody ForgetPasswordRequestDTO forgetPasswordRequestDTO) {
         var forgetPasswordResponseDTO = userService.forgetPassword(forgetPasswordRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(forgetPasswordResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(forgetPasswordResponseDTO, "",
+                true);
     }
 
     @PostMapping("/changePassword")
     public ApiResponseDTO changePassword(@RequestBody ChangePasswordRequestDTO changePasswordRequestDTO) {
         var userResponseDTO = userService.changePassword(changePasswordRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 
 }

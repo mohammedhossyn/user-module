@@ -33,14 +33,10 @@ public class LoginHistoryEntity {
     @Column(name = "LOGIN_DATE")
     private Date createdDate;
 
-    /**/
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    /*Deprecated Properties*/
-
-//    @Deprecated
     @Column(name = "USER_NAME")
     private String userName;
 

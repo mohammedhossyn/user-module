@@ -29,14 +29,16 @@ public class PermissionController {
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Permission Managemant') or hasAuthority('Add Permission')")
     public ApiResponseDTO add(@Valid @RequestBody PermissionAddRequestDTO permissionAddRequestDTO) {
         var permissionAddResponseDTO = permissionService.add(permissionAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "",
+                true);
     }
 
     @PostMapping("/add/role")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Permission Managemant') or hasAuthority('Add Permission To Role')")
     public ApiResponseDTO addToRole(@Valid @RequestBody PermissionAddToRoleRequestDTO permissionAddToRoleRequestDTO) {
         var permissionAddResponseDTO = permissionService.addToRole(permissionAddToRoleRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "",
+                true);
     }
 
     @PostMapping("/search")
@@ -44,27 +46,31 @@ public class PermissionController {
     public ApiResponseDTO search(@NonNull PaginationRequestDTO paginationRequestDTO,
                                  @RequestBody PermissionSearchRequestDTO permissionSearchRequestDTO) {
         var listDTO = permissionService.search(paginationRequestDTO.getPageable(), permissionSearchRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/parents")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Permission Managemant') or hasAuthority('Permission Parents')")
     public ApiResponseDTO getAllParents(@NonNull PaginationRequestDTO paginationRequestDTO) {
         var listDTO = permissionService.findAllParents(paginationRequestDTO.getPageable());
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/listTree")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Permission Managemant') or hasAuthority('Permission Tree List')")
     public ApiResponseDTO listTree() {
         var listDTO = permissionService.findAll();
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @PutMapping("/update/{id}")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Permission Managemant') or hasAuthority('Update Permission')")
     public ApiResponseDTO userUpdate(@NonNull @PathVariable Long id, @Valid @RequestBody PermissionAddRequestDTO permissionAddRequestDTO) {
         var permissionResponseDTO = permissionService.update(id, permissionAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(permissionResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(permissionResponseDTO, "",
+                true);
     }
 }

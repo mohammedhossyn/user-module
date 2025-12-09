@@ -31,6 +31,7 @@ public class GeneralHistoryController {
                                  @RequestBody GeneralHistoryRequestDTO generalHistoryRequestDTO) {
         var list = generalHistoryService
                 .search(paginationRequestDTO.getPageable(), generalHistoryRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(list, "");
+        return apiResponseInspector.apiResponseBuilder(list, "",
+                true);
     }
 }

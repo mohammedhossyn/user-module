@@ -28,7 +28,8 @@ public class RoleController {
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Role Managment') or hasAuthority('Add Role')")
     public ApiResponseDTO add(@Valid @RequestBody RoleAddRequestDTO roleAddRequestDTO) {
         var permissionAddResponseDTO = roleService.add(roleAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(permissionAddResponseDTO, "",
+                true);
     }
 
     @PostMapping("/search")
@@ -36,20 +37,23 @@ public class RoleController {
     public ApiResponseDTO search(@NonNull PaginationRequestDTO paginationRequestDTO,
                                  @RequestBody RoleSearchRequestDTO roleSearchRequestDTO) {
         var listDTO = roleService.search(paginationRequestDTO.getPageable(), roleSearchRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/list")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Role Managment') or hasAuthority('Role List')")
     public ApiResponseDTO listGroup() {
         var listDTO = roleService.findAll();
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @PutMapping("/update/{id}")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Role Managment') or hasAuthority('Update Role')")
     public ApiResponseDTO userUpdate(@NonNull @PathVariable Long id, @Valid @RequestBody RoleAddRequestDTO roleAddRequestDTO) {
         var groupResponseDTO = roleService.update(id, roleAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(groupResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(groupResponseDTO, "",
+                true);
     }
 }

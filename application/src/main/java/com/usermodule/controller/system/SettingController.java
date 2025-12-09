@@ -23,12 +23,14 @@ public class SettingController {
     @GetMapping("/get/{id}")
     public ApiResponseDTO getSetting(@PathVariable ("id") Long id) {
         var setting = settingService.findById(id);
-        return apiResponseInspector.apiResponseBuilder(setting, "");
+        return apiResponseInspector.apiResponseBuilder(setting, "",
+                true);
     }
 
     @PostMapping("/update")
     public ApiResponseDTO updateSetting(@Valid @RequestBody SettingRequestDTO settingRequestDTO) {
         var setting = settingService.update(settingRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(setting, "");
+        return apiResponseInspector.apiResponseBuilder(setting, "",
+                true);
     }
 }

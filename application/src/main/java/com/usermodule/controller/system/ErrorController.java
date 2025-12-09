@@ -27,14 +27,16 @@ public class ErrorController {
                                  @RequestBody ErrorSearchRequestDTO errorSearchRequestDTO) {
         var listDTO = errorService.search(paginationRequestDTO
                 .getPageable(), errorSearchRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/getError/{errorId}")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Error Management') or hasAuthority('Search Error')")
     public ApiResponseDTO getError(@NonNull @PathVariable Long errorId) {
         var errorDetailResponseDTO = errorService.getError(errorId);
-        return apiResponseInspector.apiResponseBuilder(errorDetailResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(errorDetailResponseDTO, "",
+                true);
     }
 
 }

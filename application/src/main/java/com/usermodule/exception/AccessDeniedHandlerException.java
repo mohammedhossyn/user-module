@@ -38,7 +38,8 @@ public class AccessDeniedHandlerException implements AccessDeniedHandler {
                 .value(null)
                 .description(request.getRequestURI())
                 .build());
-        var appResponseDto = apiResponseInspector.apiResponseBuilder(errors, "");
+        var appResponseDto = apiResponseInspector.apiResponseBuilder(errors, "",
+                false);
         response.getWriter().write(mapper.writeValueAsString(appResponseDto));
     }
 }

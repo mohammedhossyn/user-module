@@ -24,7 +24,8 @@ public class NotifyController {
     @PutMapping("/seen/{eventId}")
     public ApiResponseDTO seenEvent(@NonNull @PathVariable Long eventId) {
         boolean seenEventResponseDTO = eventService.seen(eventId);
-        return apiResponseInspector.apiResponseBuilder(seenEventResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(seenEventResponseDTO, "",
+                true);
     }
 
     @PostMapping("/search")
@@ -32,6 +33,7 @@ public class NotifyController {
                                  @RequestBody EventSearchRequestDTO eventSearchRequestDTO) {
         var listDTO = eventService.search(paginationRequestDTO.getPageable(),
                 eventSearchRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 }

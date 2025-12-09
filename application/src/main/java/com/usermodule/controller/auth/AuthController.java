@@ -31,7 +31,8 @@ public class AuthController {
     public ApiResponseDTO login(@Valid @RequestBody LoginRequestDTO loginRequestDTO, HttpServletRequest request) {
         var loginResponseDTO = authService
                 .login(loginRequestDTO, httpUtil.getHostName(),httpUtil.getHostAddress(), httpUtil.getRequestIp(request));
-        return apiResponseInspector.apiResponseBuilder(loginResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(loginResponseDTO, "",
+                true);
     }
 
     @PostMapping("/logout")
@@ -42,6 +43,7 @@ public class AuthController {
     @PostMapping("/signup")
     public ApiResponseDTO signup(@Valid @RequestBody UserAddRequestDTO userAddRequestDTO, HttpServletRequest request) {
         var userResponseDTO = userService.add(userAddRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(userResponseDTO, "",
+                true);
     }
 }

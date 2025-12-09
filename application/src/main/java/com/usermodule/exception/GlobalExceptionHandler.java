@@ -60,7 +60,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(ACCOUNT_LOCKED.getDescription()));
+                resourceBundleUtil.getMessage(ACCOUNT_LOCKED.getDescription()),
+                false);
         return ResponseEntity
                 .status(ACCOUNT_LOCKED.getHttpStatus())
                 .body(appResponseDto);
@@ -79,7 +80,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(ACCOUNT_DISABLED.getDescription()));
+                resourceBundleUtil.getMessage(ACCOUNT_DISABLED.getDescription()),
+                false);
         return ResponseEntity
                 .status(ACCOUNT_DISABLED.getHttpStatus())
                 .body(appResponseDto);
@@ -98,7 +100,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(BAD_CREDENTIALS.getDescription()));
+                resourceBundleUtil.getMessage(BAD_CREDENTIALS.getDescription()),
+                false);
         return ResponseEntity
                 .status(BAD_CREDENTIALS.getHttpStatus())
                 .body(appResponseDto);
@@ -117,7 +120,8 @@ public class GlobalExceptionHandler {
 //                .line(exp.getStackTrace()[0].getLineNumber())
 //                .build());
 //        var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-//        resourceBundleUtil.getMessage(INTERNAL_SERVER_ERROR.getDescription()));
+//        resourceBundleUtil.getMessage(INTERNAL_SERVER_ERROR.getDescription()),
+//                false);
 //        return ResponseEntity
 //                .status(INTERNAL_SERVER_ERROR.getHttpStatus())
 //                .body(appResponseDto);
@@ -136,7 +140,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(exp.getMessage()));
+                resourceBundleUtil.getMessage(exp.getMessage()),
+                false);
         return ResponseEntity
                 .status(ACTIVATION_TOKEN_EXCEPTION.getHttpStatus())
                 .body(appResponseDto);
@@ -155,7 +160,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(exp.getMessage()));
+                resourceBundleUtil.getMessage(exp.getMessage()),
+                false);
         return ResponseEntity
                 .status(OPERATION_NOT_PERMITTED_EXCEPTION.getHttpStatus())
                 .body(appResponseDto);
@@ -174,7 +180,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(exp.getMessage()));
+                resourceBundleUtil.getMessage(exp.getMessage()),
+                false);
         return ResponseEntity
                 .status(ALREADY_EXISTS_EXCEPTION.getHttpStatus())
                 .body(appResponseDto);
@@ -193,7 +200,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(EXCEPTION.getHttpStatus())
                 .body(appResponseDto);
@@ -212,7 +220,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var appResponseDto = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(PAGE_NOT_FOUND.getDescription()));
+                resourceBundleUtil.getMessage(PAGE_NOT_FOUND.getDescription()),
+                false);
         return ResponseEntity
                 .status(PAGE_NOT_FOUND.getHttpStatus())
                 .body(appResponseDto);
@@ -238,7 +247,8 @@ public class GlobalExceptionHandler {
                         .line(exp.getStackTrace()[0].getLineNumber())
                         .build()));
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -259,7 +269,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(AUTHENTICATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(AUTHENTICATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(AUTHENTICATION_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -280,7 +291,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(INSUFFICIENT_AUTHENTICATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(INSUFFICIENT_AUTHENTICATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -301,7 +313,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(ACCESS_DENIED_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(ACCESS_DENIED_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(ACCESS_DENIED_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -322,7 +335,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(ILLEGAL_ARGUMENT_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(ILLEGAL_ARGUMENT_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(ILLEGAL_ARGUMENT_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -343,7 +357,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(NULL_POINTER_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(NULL_POINTER_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(NULL_POINTER_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -364,7 +379,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(NO_HANDLER_FOUND_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(NO_HANDLER_FOUND_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(NO_HANDLER_FOUND_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -402,7 +418,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(BUSINESS_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(BUSINESS_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(BUSINESS_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -426,7 +443,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(DATA_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(DATA_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(DATA_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -448,7 +466,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(CONSTRAINT_VIOLATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(CONSTRAINT_VIOLATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(CONSTRAINT_VIOLATION_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -474,7 +493,8 @@ public class GlobalExceptionHandler {
                     .build());
         }
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(CONSTRAINT_VIOLATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(CONSTRAINT_VIOLATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(CONSTRAINT_VIOLATION_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -495,7 +515,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(JDBC_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(JDBC_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(JDBC_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -517,7 +538,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(SQL_INTEGRITY_CONSTRAINT_VIOLATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(SQL_INTEGRITY_CONSTRAINT_VIOLATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(SQL_INTEGRITY_CONSTRAINT_VIOLATION_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -538,7 +560,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(SQL_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(SQL_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(SQL_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -559,7 +582,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(HIBERNATE_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(HIBERNATE_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(HIBERNATE_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -580,7 +604,8 @@ public class GlobalExceptionHandler {
                 .build());
 
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(DATA_INTEGRITY_VIOLATION_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(DATA_INTEGRITY_VIOLATION_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(DATA_INTEGRITY_VIOLATION_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -600,7 +625,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(RUNTIME_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(RUNTIME_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(RUNTIME_EXCEPTION.getHttpStatus())
                 .body(response);
@@ -621,7 +647,8 @@ public class GlobalExceptionHandler {
                 .line(exp.getStackTrace()[0].getLineNumber())
                 .build());
         var response = apiResponseInspector.apiResponseBuilder(errors,
-                resourceBundleUtil.getMessage(SERVLET_EXCEPTION.getDescription()));
+                resourceBundleUtil.getMessage(SERVLET_EXCEPTION.getDescription()),
+                false);
         return ResponseEntity
                 .status(SERVLET_EXCEPTION.getHttpStatus())
                 .body(response);

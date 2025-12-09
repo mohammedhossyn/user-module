@@ -26,6 +26,7 @@ public class AuditController {
     public ApiResponseDTO search(@PathVariable String entity,
                                  @PathVariable Long referenceId) {
         var auditResponseDTO = auditService.search(entity, referenceId);
-        return apiResponseInspector.apiResponseBuilder(auditResponseDTO, "");
+        return apiResponseInspector.apiResponseBuilder(auditResponseDTO, "",
+                true);
     }
 }

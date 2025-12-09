@@ -29,14 +29,14 @@ public class ApiResponseInspector {
     private final TransactionUtil transactionUtil;
     private final ResourceBundleUtil resourceBundleUtil;
 
-    public ApiResponseDTO apiResponseBuilder(Object data, String message) {
+    public ApiResponseDTO apiResponseBuilder(Object data, String message, boolean status) {
         if (transactionUtil.isOpenTrans()) {
             throw new BusinessException(App.TRANSACTION_IS_OPEN);
         }
         message = message == null || message.isEmpty()  ? "msg.operation.successful" : message;
         return ApiResponseDTO.builder()
                 .timestamp(new Date())
-                .status(true)
+                .status(status)
                 .data(data)
                 .message(resourceBundleUtil.getMessage(message))
                 .build();

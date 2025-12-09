@@ -27,7 +27,8 @@ public class OptionController {
                                @RequestBody OptionRequestDTO optionRequestDTO) {
         var listDTO = optionService.search(paginationRequestDTO
                 .getPageable(),optionRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @PutMapping("/update/{id}")
@@ -35,13 +36,15 @@ public class OptionController {
     public ApiResponseDTO update(@PathVariable ("id") Long id,
                                  @RequestBody OptionRequestDTO optionRequestDTO) {
         var listDTO = optionService.update(id, optionRequestDTO);
-        return apiResponseInspector.apiResponseBuilder(listDTO, "");
+        return apiResponseInspector.apiResponseBuilder(listDTO, "",
+                true);
     }
 
     @GetMapping("/reloadOption")
     @PreAuthorize("hasAuthority('Manager') or hasAuthority('Option Management') or hasAuthority('Reload Option')")
     public ApiResponseDTO reloadOption() {
         optionService.reloadOptionMap();
-        return apiResponseInspector.apiResponseBuilder(null, "");
+        return apiResponseInspector.apiResponseBuilder(null, "",
+                true);
     }
 }
