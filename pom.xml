@@ -8,7 +8,7 @@
 		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com</groupId>
+	<groupId>com.usermodule</groupId>
 	<artifactId>user-module</artifactId>
 	<version>1.0.0</version>
 	<name>user-module</name>
